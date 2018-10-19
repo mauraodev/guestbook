@@ -47,14 +47,14 @@
             fetch(page = 1) {
                 axios.get(this.endpoint + page)
                     .then(({data}) => {
-                    this.signatures = data.data;
-                this.pageCount = data.meta.last_page;
-            });
+                        this.signatures = data.data;
+                        this.pageCount = data.meta.last_page;
+                    });
             },
 
             report(id) {
-                if(confirm('Are you sure you want to report this signature?')) {
-                    axios.put('api/signatures/'+id+'/report')
+                if (confirm('Are you sure you want to report this signature?')) {
+                    axios.put('api/signatures/' + id + '/report')
                         .then(response => this.removeSignature(id));
                 }
             },
